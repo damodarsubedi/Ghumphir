@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
     <body>
         <form id="login">
-            <input type="text" name="email" id="email"><br>
-            <input type="text" name="password" id="password"><br>
+            <label>Email:</label><br>
+            <input type="text" name="email" id="email" autocomplete="off"><br><br>
+            <label>Password:</label><br>
+            <input type="password" name="password" id="password" autocomplete="off"><br><br>
+            <label>Confirm Password:</label><br>
+            <input type="password" name="confirmPassword" id="confirmPassword" autocomplete="off"><br><br>
+            <label>Address:</label><br>
+            <input type="text" name="address" id="address" autocomplete="off"><br><br>
+            <label>Phone No:</label><br>
+            <input type="text" name="phoneNo" id="phoneNo" autocomplete="off"><br><br>
             <button>Login</button>
         </form>
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
 
         <script>
+
+            
             // Your web app's Firebase configuration
             var firebaseConfig = {
                 apiKey: "AIzaSyDBxog49_vq8d8Y89bcIyRdKJ1hHphD7l0",
@@ -30,18 +40,29 @@
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
-        
+            const db = firebase.firestore();
             document.addEventListener('submit', (event) => {
                 event.preventDefault();
                 let email = document.getElementById('email');
                 let password = document.getElementById('password');
+                let confirmPassword = document.getElementById('confirmPassword');
+                let address = document.getElementById('address');
+                let phoneNo = document.getElementById('phoneNo');
 
-                firebase
+                if(password.value != confirmPassword.value){
+                    console.log("Password don't match");
+                }
+                else{
+                    firebase
                     .auth()
-                    .signInWithEmailAndPassword(email.value, password.value)
+                    .createUserWithEmailAndPassword(email.value, password.value)
                     .then(({user}) => {
+                        db.collection('users').doc(user.uid).set({
+                            address: address.value,
+                            phoneNo: phoneNo.value
+                        })
                         return user.getIdToken().then( (idToken) => {
-                            return fetch("/login", {
+                            return fetch("/signup", {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json"
@@ -51,7 +72,7 @@
                         })
                     })
                     .catch((error) => {
-                        fetch("/login", {
+                        fetch("/signup", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -59,15 +80,11 @@
                             body: JSON.stringify({message: error.message})
                         })
                     })
-                
-                firebase.auth().onAuthStateChanged(user => {
-                    if(user){
-                        window.location = "/home";
-                    }
-                })
+                }
             });
 
+            
+
         </script>
-      
     </body>
 </html>
