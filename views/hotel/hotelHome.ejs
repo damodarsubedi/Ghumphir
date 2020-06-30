@@ -1,0 +1,37 @@
+Home
+
+<button onclick="signOut()">SIgn out</button>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDBxog49_vq8d8Y89bcIyRdKJ1hHphD7l0",
+        authDomain: "ghumphir-88668.firebaseapp.com",
+        databaseURL: "https://ghumphir-88668.firebaseio.com",
+        projectId: "ghumphir-88668",
+        storageBucket: "ghumphir-88668.appspot.com",
+        messagingSenderId: "864805870658",
+        appId: "1:864805870658:web:d1d2af356688bc4a9a21db"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            
+        } else {
+            window.location = '/';
+        }
+    });
+    function signOut(){
+        firebase.auth().signOut().then(() => {
+            window.location = '/';
+        });
+    }
+
+</script>
