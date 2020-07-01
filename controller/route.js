@@ -9,6 +9,12 @@ var route = function(app){
         res.render('booking');
 
     });
+
+    //landing page
+    app.get('/landing', (req, res) => {
+        res.render('landing');
+
+    });
     
 }
 
