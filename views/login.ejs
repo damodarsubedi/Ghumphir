@@ -46,6 +46,7 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
         
+            
             document.addEventListener('submit', (event) => {
                 event.preventDefault();
                 let email = document.getElementById('email');
@@ -58,10 +59,26 @@
                         return user.getIdToken().then( (idToken) => {
                                 firebase.firestore().collection('users').doc(user.uid).get()
                                 .then((users) => {
+                                    
                                     if(typeof users.data().hotel !== 'undefined'){
+                                        fetch("/", {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type": "application/json"
+                                            },
+                                            body: JSON.stringify({idToken: idToken, uid: user.uid, email: user.email, hotel: users.data().hotel})
+                                        })
                                         window.location = '/hotel/home';
                                     }
                                     else{
+                                        console.log(users.data().firstName);
+                                        fetch("/", {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type": "application/json"
+                                            },
+                                            body: JSON.stringify({idToken: idToken, email: user.email, firstName: users.data().firstName, lastName: users.data().lastName})
+                                        })
                                         window.location = '/users/home';
                                     }
                                 })
@@ -86,6 +103,8 @@
                         .then(function(data){ alert(data.msg) })
                     })
             });
+
+
 
         </script>
 

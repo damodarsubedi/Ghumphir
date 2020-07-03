@@ -14,21 +14,31 @@
             </div>
         </div>
         <form id="signup" class="bg-light">
-            <div class="mt-4 h3 text-center text-info pb-3">Welcome to Ghumphir</div>
+            <p class="h4 mt-4 text-center text-info pb-3">User Registration</p>
+            <div class="row px-5">
+                <div class="form-group col-6">
+                    <label for="fName">First Name</label>
+                    <input type="text" class="form-control" id="fName" placeholder="First name" autocomplete="off" required>
+                </div>
+                <div class="form-group col-6">
+                    <label for="lName">Last Name</label>
+                    <input type="text" class="form-control" id="lName" placeholder="Last name" autocomplete="off" required>
+                </div>
+            </div>
             <div class="row px-5">
                 <div class="form-group col-6">
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" id="email" placeholder="Enter email" autocomplete="off" required>
                 </div>
                 <div class="form-group col-6">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" autocomplete="off" required>
+                    <label for="password">Phone number</label>
+                    <input type="number" class="form-control" id="phoneNo" placeholder="Phone number" autocomplete="off" required>
                 </div>
             </div>
             <div class="row px-5">
                 <div class="form-group col-6">
-                    <label for="password">Phone number</label>
-                    <input type="number" class="form-control" id="phoneNo" placeholder="Phone number" autocomplete="off" required>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" autocomplete="off" required>
                 </div>
                 <div class="form-group col-6">
                     <label for="password">Confirm Password</label>
@@ -77,6 +87,8 @@
                 let confirmPassword = document.getElementById('confirmPassword');
                 let address = document.getElementById('address');
                 let phoneNo = document.getElementById('phoneNo');
+                let firstName = document.getElementById('fName');
+                let lastName = document.getElementById('lName');
 
                 if(password.value != confirmPassword.value){
                     alert("Password don't match");
@@ -86,18 +98,14 @@
                     .auth()
                     .createUserWithEmailAndPassword(email.value, password.value)
                     .then(({user}) => {
-                        db.collection('users').doc(user.uid).set({
+                        return db.collection('users').doc(user.uid).set({
                             address: address.value,
-                            phoneNo: phoneNo.value
+                            phoneNo: phoneNo.value,
+                            firstName: firstName.value,
+                            lastName: lastName.value,
                         })
-                        return user.getIdToken().then( (idToken) => {
-                            return fetch("/signup", {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify({idToken: idToken, email: user.email})
-                            })
+                        .then(() => {
+                            return window.location = '/';
                         })
                     })
                     .catch((error) => {

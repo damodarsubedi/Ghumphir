@@ -13,8 +13,8 @@
 
             </div>
         </div>
-        <form id="signup" class="bg-light">
-            <div class="mt-4 h3 text-center text-info pb-3">Welcome to Ghumphir</div>
+        <form id="hotelSignup" class="bg-light">
+            <div class="mt-4 h4 text-center text-info pb-3">Hotel Registration</div>
             <div class="row px-5">
                 <div class="form-group col-6">
                     <label for="hotel">Hotel</label>
@@ -45,11 +45,21 @@
                     <input type="number" class="form-control" id="phoneNo" placeholder="Phone number" autocomplete="off" required>
                 </div>
             </div>
+            <div class="row px-5">
+                <div class="form-group col-6">
+                    <label for="longitude">Longitude</label>
+                    <input type="number" class="form-control" id="longitude" placeholder="Longitude" autocomplete="off" required>
+                </div>
+                <div class="form-group col-6">
+                    <label for="latitude">Latitue</label>
+                    <input type="number" class="form-control" id="latitude" placeholder="Latitue" autocomplete="off" required>
+                </div>
+            </div>
             
-            <div class="ml-2 mt-3">
+            <div class="ml-5 mt-3">
                 <button type="submit" class="btn btn-primary col-3">Register</button><br>
-                <div class="form-group mt-3 ml-5">Already Registered? <a class="text-info" href="/">Login In</a></div>
-                <div class="form-group ml-5">Register as user? <a class="text-info" href="/signup">Register</a></div>
+                <div class="form-group mt-3">Already Registered? <a class="text-info" href="/">Login In</a></div>
+                <div class="form-group">Register as user? <a class="text-info" href="/signup">Register</a></div>
             </div>
         </form>
 
@@ -82,6 +92,8 @@
                 let address = document.getElementById('address');
                 let phoneNo = document.getElementById('phoneNo');
                 let hotel = document.getElementById('hotel');
+                let longitude = document.getElementById('longitude');
+                let latitude = document.getElementById('latitude');
 
                 if(password.value != confirmPassword.value){
                     alert("Password don't match");
@@ -91,19 +103,15 @@
                     .auth()
                     .createUserWithEmailAndPassword(email.value, password.value)
                     .then(({user}) => {
-                        db.collection('users').doc(user.uid).set({
+                        return db.collection('users').doc(user.uid).set({
                             address: address.value,
                             phoneNo: phoneNo.value,
                             hotel: hotel.value,
+                            longitude: longitude.value,
+                            latitude: latitude.value
                         })
-                        return user.getIdToken().then( (idToken) => {
-                            return fetch("/signup", {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json"
-                                },
-                                body: JSON.stringify({idToken: idToken, email: user.email})
-                            })
+                        .then(()=>{
+                            return window.location = '/';
                         })
                     })
                     .catch((error) => {

@@ -7,14 +7,7 @@
     background-repeat: no-repeat;
     position: relative;
 }
-.layer {
-    background-color: rgba(92, 92, 92, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+
 
 #login{
     width: 40%;
@@ -25,11 +18,29 @@
     top: 10vh;
 }
 
+.layer {
+    background-color: rgba(92, 92, 92, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 #signup{
     width: 70%;
     margin-left: 15%;
     border-radius: 10px;
-    margin-top: 25px;
+    margin-top: -30px;
+    position: absolute;
+    top: 10vh;
+}
+
+#hotelSignup{
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 10px;
+    margin-top: -30px;
     position: absolute;
     top: 10vh;
 }
@@ -40,4 +51,16 @@
 
 #login button, #signup button{
     margin-left: 40px;
+}
+
+.room{
+    background-color: rgba(248, 249, 250, 0.4);
+    font-size: 1.2em;
+    width: 100%;
+    display: inline-block;
+}
+.headingRooms{
+    color: #eb4034;
+    font-weight: bold;
+    font-family: Georgia, serif;
 }
