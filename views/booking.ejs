@@ -94,11 +94,10 @@
 				</div>
 			</div>
 		</div>
-
-	  <!--js jquery-->
-   <script src="js/jquery.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/util.js"></script>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
 
    <script>
 	$('.form-control').each(function () {
@@ -122,7 +121,19 @@
 <!--booking to store inside js object-->
 
 <script>
-
+	
+  var firebaseConfig = {
+                apiKey: "AIzaSyDBxog49_vq8d8Y89bcIyRdKJ1hHphD7l0",
+                authDomain: "ghumphir-88668.firebaseapp.com",
+                databaseURL: "https://ghumphir-88668.firebaseio.com",
+                projectId: "ghumphir-88668",
+                storageBucket: "ghumphir-88668.appspot.com",
+                messagingSenderId: "864805870658",
+                appId: "1:864805870658:web:d1d2af356688bc4a9a21db"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        
 	let bookings = [];
 	const addbooking = (ev) => {
 		ev.preventDefault();
@@ -159,5 +170,10 @@
 	});
 </script>
 
+<!--js jquery-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/util.js"></script>
+	
 </body>
 </html>
