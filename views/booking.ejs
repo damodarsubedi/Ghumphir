@@ -20,7 +20,7 @@
 						</div>
 						<div class="col-md-6 col-md-offset-1">
 							<div class="booking-form">
-								<form id="bookingform">
+								<form method="POST" enctype="multipart/form-data" id="formRoom">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
@@ -98,6 +98,10 @@
  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+ <!--js jquery-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/util.js"></script>
 
    <script>
 	$('.form-control').each(function () {
@@ -120,8 +124,7 @@
 
 <!--booking to store inside js object-->
 
-<script>
-	
+<script>	
   var firebaseConfig = {
                 apiKey: "AIzaSyDBxog49_vq8d8Y89bcIyRdKJ1hHphD7l0",
                 authDomain: "ghumphir-88668.firebaseapp.com",
@@ -132,47 +135,41 @@
                 appId: "1:864805870658:web:d1d2af356688bc4a9a21db"
             };
             // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-        
-		let bookings = [];
-		const addbooking = (ev) => {
-			ev.preventDefault();
-			let booking = {
-				id: Date.now(),
-				name: document.getElementById('name').value,
-				email: document.getElementById('email').value,
-				phone: document.getElementById('phone').value,
-				rooms: document.getElementById('roomno').value,
-				guests: document.getElementById('guestno').value,
-				checkin: document.getElementById('checkin').value,
-				checkout: document.getElementById('checkout').value
+			firebase.initializeApp(firebaseConfig);
+			const db = firebase.firestore();
 
-			}
-			bookings.push(booking);
-			document.querySelector('form').reset(); //to clear the form
+			document.addEventListener('submit', (event) => {
+				event.preventDefault();
+				let name = document.getElementById('name');
+				let email = document.getElementById('email');
+				let phone = document.getElementById('phone');
+				let rooms = document.getElementById('roomno');
+				let guests = document.getElementById('guestno');
+				let checkin = document.getElementById('checkin');
+				let checkout = document.getElementById('checkout');  
+			
+				firebase.firestore().collection('rooms').doc().set({
+					uid: uid,
+					name: name.value,
+					email: email.value,
+					phone: phone.value,
+					rooms: rooms.value,
+					guests: guests.value,
+					checkin: checkin.value,
+					checkout: checkout.value
+				})
+				.then(() => {
+					fetch("/booking", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify({})
 
-			//to display only
-
-			// console.warn('added', {bookings} );
-			// let pre = document.querySelector('#msg pre');
-			// pre.textContent = '\n' + JSON.stringify(bookings, '\t', 2);
-
-			console.log(bookings);
-
-			//saving to local storage
-			localStorage.setItem('MyBookingList', JSON.stringify(bookings));
-
-
-		}
-		document.addEventListener('DOMContentLoaded', () =>{
-			document.getElementById('btn').addEventListener('click', addbooking);
-		});
+					})
+					return document.getElementById('formRoom').submit();
+				})
+			});
 </script>
-
-<!--js jquery-->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/util.js"></script>
-	
 </body>
 </html>
