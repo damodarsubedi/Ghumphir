@@ -15,6 +15,12 @@ var route = function(app){
         res.render('landing');
 
     });
+
+    //booking post request
+
+    app.post('/booking', (req, res) => {
+
+    } );
     
 }
 
