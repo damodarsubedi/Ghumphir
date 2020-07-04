@@ -20,7 +20,7 @@
 						</div>
 						<div class="col-md-6 col-md-offset-1">
 							<div class="booking-form">
-								<form>
+								<form id="bookingform">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
@@ -80,7 +80,7 @@
 										</div>
 									</div>
 									<div class="form-btn" id="btnbook">
-										<button id="btn" class="submit-btn" >Book Now</button>
+										<button type="submit" id="btn" class="submit-btn" >Book Now</button>
 									</div>
 
 									<div id="msg">
@@ -134,40 +134,39 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
         
-	let bookings = [];
-	const addbooking = (ev) => {
-		ev.preventDefault();
+		let bookings = [];
+		const addbooking = (ev) => {
+			ev.preventDefault();
+			let booking = {
+				id: Date.now(),
+				name: document.getElementById('name').value,
+				email: document.getElementById('email').value,
+				phone: document.getElementById('phone').value,
+				rooms: document.getElementById('roomno').value,
+				guests: document.getElementById('guestno').value,
+				checkin: document.getElementById('checkin').value,
+				checkout: document.getElementById('checkout').value
 
-		let booking = {
-			id: Date.now(),
-			name: document.getElementById('name').value,
-			email: document.getElementById('email').value,
-			phone: document.getElementById('phone').value,
-			rooms: document.getElementById('roomno').value,
-			guests: document.getElementById('guestno').value,
-			checkin: document.getElementById('checkin').value,
-			checkout: document.getElementById('checkout').value
+			}
+			bookings.push(booking);
+			document.querySelector('form').reset(); //to clear the form
+
+			//to display only
+
+			// console.warn('added', {bookings} );
+			// let pre = document.querySelector('#msg pre');
+			// pre.textContent = '\n' + JSON.stringify(bookings, '\t', 2);
+
+			console.log(bookings);
+
+			//saving to local storage
+			localStorage.setItem('MyBookingList', JSON.stringify(bookings));
+
 
 		}
-		bookings.push(booking);
-		document.querySelector('form').reset(); //to clear the form
-
-		//to display only
-
-		// console.warn('added', {bookings} );
-		// let pre = document.querySelector('#msg pre');
-		// pre.textContent = '\n' + JSON.stringify(bookings, '\t', 2);
-
-		console.log(bookings);
-
-		//saving to local storage
-		localStorage.setItem('MyBookingList', JSON.stringify(bookings));
-
-
-	}
-	document.addEventListener('DOMContentLoaded', () =>{
-		document.getElementById('btn').addEventListener('click', addbooking);
-	});
+		document.addEventListener('DOMContentLoaded', () =>{
+			document.getElementById('btn').addEventListener('click', addbooking);
+		});
 </script>
 
 <!--js jquery-->
