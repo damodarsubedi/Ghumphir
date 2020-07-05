@@ -138,10 +138,7 @@
 			firebase.initializeApp(firebaseConfig);
 			const db = firebase.firestore();
 
-			const ht = firebase.firestore().collection("hotels").doc().id;
-			console.log(ht);
-			// const ho = firebase.firestore().collection('hotel').doc(users.uid).get();
-			
+			const ht = firebase.firestore().collection("hotels");			
 			document.addEventListener('submit', (event) => {
 				event.preventDefault();
 				let name = document.getElementById('name');
