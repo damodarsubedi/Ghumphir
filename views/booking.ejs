@@ -138,6 +138,10 @@
 			firebase.initializeApp(firebaseConfig);
 			const db = firebase.firestore();
 
+			const ht = firebase.firestore().collection("hotels").doc().id;
+			console.log(ht);
+			// const ho = firebase.firestore().collection('hotel').doc(users.uid).get();
+			
 			document.addEventListener('submit', (event) => {
 				event.preventDefault();
 				let name = document.getElementById('name');
@@ -146,10 +150,9 @@
 				let rooms = document.getElementById('roomno');
 				let guests = document.getElementById('guestno');
 				let checkin = document.getElementById('checkin');
-				let checkout = document.getElementById('checkout');  
-			
-				firebase.firestore().collection('rooms').doc().set({
-					uid: uid,
+				let checkout = document.getElementById('checkout');
+				
+				firebase.firestore().collection('booking').doc().set({
 					name: name.value,
 					email: email.value,
 					phone: phone.value,
@@ -165,10 +168,13 @@
 							"Content-Type": "application/json"
 						},
 						body: JSON.stringify({})
+						
 
 					})
+					alert('Your booking has been successfully booked')
 					return document.getElementById('formRoom').submit();
 				})
+				.catch(err => console.log(err))
 			});
 </script>
 </body>
