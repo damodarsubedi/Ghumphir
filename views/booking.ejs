@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>booking</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+</head>
+<body>
+		<div id="booking" class="section">
+			<div class="section-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-5">
+							<div class="booking-cta">
+								<h1>Make your reservation</h1>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam numquam at</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-md-offset-1">
+							<div class="booking-form">
+								<form method="POST" enctype="multipart/form-data" id="formRoom">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input class="form-control" type="text" id="name" />
+												<span class="form-label">Name</span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<input class="form-control" type="email" id="email" />
+												<span class="form-label">Email</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input class="form-control" type="tel" id="phone" />
+												<span class="form-label">Phone</span>
+											</div>
+										</div>
+										<div class="col-md-3 col-sm-6">
+											<div class="form-group">
+												<span class="form-label">Rooms</span>
+												<select class="form-control"  id="roomno" >
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+										</div>
+										<div class="col-md-3 col-sm-6">
+											<div class="form-group">
+												<span class="form-label">Guests</span>
+												<select class="form-control"  id="guestno" >
+													<option>1 Person</option>
+													<option>2 People</option>
+													<option>3 People</option>
+												</select>
+												<span class="select-arrow"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input class="form-control" type="date" required  id="checkin">
+												<span class="form-label">Check In</span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<input class="form-control" type="date" required  id="checkout">
+												<span class="form-label">Check Out</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-btn" id="btnbook">
+										<button type="submit" id="btn" class="submit-btn" >Book Now</button>
+									</div>
+
+									<div id="msg">
+										<pre></pre>
+
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+ <!--js jquery-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/util.js"></script>
+
+   <script>
+	$('.form-control').each(function () {
+		floatedLabel($(this));
+	});
+
+	$('.form-control').on('input', function () {
+		floatedLabel($(this));
+	});
+
+	function floatedLabel(input) {
+		var $field = input.closest('.form-group');
+		if (input.val()) {
+			$field.addClass('input-not-empty');
+		} else {
+			$field.removeClass('input-not-empty');
+		}
+	}
+</script>
+
+<!--booking to store inside js object-->
+
+<script>	
+  var firebaseConfig = {
+                apiKey: "AIzaSyDBxog49_vq8d8Y89bcIyRdKJ1hHphD7l0",
+                authDomain: "ghumphir-88668.firebaseapp.com",
+                databaseURL: "https://ghumphir-88668.firebaseio.com",
+                projectId: "ghumphir-88668",
+                storageBucket: "ghumphir-88668.appspot.com",
+                messagingSenderId: "864805870658",
+                appId: "1:864805870658:web:d1d2af356688bc4a9a21db"
+            };
+            // Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			const db = firebase.firestore();
+
+			firebase.firestore().collection('hotel').get()
+			.then((hotel) => {
+				hotel.docs.forEach((hotels) => {
+					console.log(hotels.id);
+				})
+
+			})
+			document.addEventListener('submit', (event) => {
+				event.preventDefault();
+				let name = document.getElementById('name');
+				let email = document.getElementById('email');
+				let phone = document.getElementById('phone');
+				let rooms = document.getElementById('roomno');
+				let guests = document.getElementById('guestno');
+				let checkin = document.getElementById('checkin');
+				let checkout = document.getElementById('checkout');
+		
+				firebase.firestore().collection('booking').doc().set({
+					name: name.value,
+					email: email.value,
+					phone: phone.value,
+					rooms: rooms.value,
+					guests: guests.value,
+					checkin: checkin.value,
+					checkout: checkout.value
+				})
+				.then(() => {
+					fetch("/booking", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify({})
+						
+
+					})
+					alert('You have successfully booked')
+					return document.getElementById('formRoom').submit();
+				})
+				.catch(err => console.log(err))
+			});
+</script>
+</body>
+</html>

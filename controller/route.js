@@ -90,6 +90,13 @@ var route = function(app){
             res.redirect('/');
         }
     })
+
+    //booking
+
+    app.get('/booking', (req, res) => {
+        
+        res.render('booking');
+    });
 }
 
 module.exports = route;
