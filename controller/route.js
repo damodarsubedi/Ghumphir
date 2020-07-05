@@ -94,7 +94,6 @@ var route = function(app){
     //booking
 
     app.get('/booking', (req, res) => {
-        
         res.render('booking');
     });
 }
