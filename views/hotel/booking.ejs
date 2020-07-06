@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>booking</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css"/>
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
 		<div id="booking" class="section">
@@ -99,9 +99,9 @@
  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
  <!--js jquery-->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/util.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
    <script>
 	$('.form-control').each(function () {
@@ -123,7 +123,6 @@
 </script>
 
 <!--booking to store inside js object-->
-
 <script>	
   var firebaseConfig = {
                 apiKey: "AIzaSyDBxog49_vq8d8Y89bcIyRdKJ1hHphD7l0",
@@ -154,8 +153,10 @@
 				let guests = document.getElementById('guestno');
 				let checkin = document.getElementById('checkin');
 				let checkout = document.getElementById('checkout');
-		
+				let uid = "<%= uid %>";
+
 				firebase.firestore().collection('booking').doc().set({
+					uid: uid,
 					name: name.value,
 					email: email.value,
 					phone: phone.value,
@@ -170,9 +171,7 @@
 						headers: {
 							"Content-Type": "application/json"
 						},
-						body: JSON.stringify({})
-						
-
+						body: JSON.stringify({})	
 					})
 					alert('You have successfully booked')
 					return document.getElementById('formRoom').submit();

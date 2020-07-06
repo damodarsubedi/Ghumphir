@@ -93,8 +93,14 @@ var route = function(app){
 
     //booking
 
-    app.get('/booking', (req, res) => {
-        res.render('booking');
+    app.get('/hotel/booking', (req, res) => {
+        if(sess){
+            res.render('booking', {name: sess.name, uid: sess.uid});
+        }
+        else{
+            res.redirect('/');
+        }
+      
     });
 }
 

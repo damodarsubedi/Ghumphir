@@ -1,4 +1,17 @@
 
+
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body, html{
+	height: 100%;
+	overflow-x: hidden;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 .cont{
     background-image: url("/images/map.png");
     min-height: 100vh;
@@ -67,18 +80,6 @@
 
 /*booking*/
 
-
-*{
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-}
-body, html{
-	height: 100%;
-	overflow-x: hidden;
-	text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-}
 
 .section1::after{
 	margin-top: 30px;
