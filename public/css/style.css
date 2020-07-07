@@ -357,6 +357,10 @@ a{
     }
 }
 
+.fa-trash:hover{
+	cursor: pointer;
+}
+
 /* contact form */
 /* 
 .container {
