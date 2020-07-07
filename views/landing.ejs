@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-    
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
 
     <title>Home</title>
 </head>
 <body>
 
  <!--banner image carousel-->
+
 <section class="section1">
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<nav class="my-nav navbar navbar-expand-lg navbar-light bg-light">
+		<form class="form-inline my-2 my-lg-0">
+			<button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+		  </form>	
+	</nav>
+	<div id="carouselExampleIndicators" class="my-carousel carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
-		  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-		  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-		  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 		</ol>
 		<div class="carousel-inner ">
 		  <div class="carousel-item active" id="slide1">
@@ -58,10 +64,123 @@
 	
 </section>
 
+<!--footer-->
+
+<footer class="footer-section">
+	<div class="container">
+		<div class="footer-cta pt-5 pb-5">
+			<div class="row">
+				<!-- <div class="col-xl-4 col-md-4 mb-30">
+					<div class="single-cta">
+						<i class="fas fa-map-marker-alt"></i>
+						<div class="cta-text">
+							<h4>Find us</h4>
+							<span>1010 Avenue, sw 54321, chandigarh</span>
+						</div>
+					</div>
+				</div> -->
+				<div class="col-xl-4s col-md-4 ">
+					<div class="single-cta">
+						<i class="fa fa-phone"></i>
+						<div class="cta-text">
+							<h4>Call us</h4>
+							<span>9866543210 0</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-4 mb-30">
+					<div class="single-cta">
+						<i class="fa fa-envelope"></i>
+						<div class="cta-text">
+							<h4>Mail us</h4>
+							<span>phirghumphir55@gmail.com</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-content pt-5 pb-5">
+			<div class="row">
+				<div class="col-xl-4 col-lg-4 mb-50">
+					<div class="footer-widget">
+						<div class="footer-social-icon">
+							<span>Ghumphir</span>
+						</div>
+						<div class="footer-text">
+							<p>Ghumphir is a web application to deliver rural navigaton and contacting for their local accomodation withi the
+								trekking route and trails.
+							</p>
+						</div>
+						<div class="footer-social-icon">
+							<span>Follow us</span>
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-linkedin"></i></a>
+							<a href="#"><i class="fa fa-instagram"></i></a>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+					<div class="footer-widget">
+						<div class="footer-widget-heading">
+							<h3>Useful Links</h3>
+						</div>
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">about</a></li>
+							<li><a href="#">Booking</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">Map</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+					<div class="footer-widget">
+						<div class="footer-widget-heading">
+							<h3>Subscribe</h3>
+						</div>
+						<div class="footer-text mb-25">
+							<p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+						</div>
+						<div class="subscribe-form">
+							<form action="#">
+								<input type="text" placeholder="Email Address">
+								<button><i class="fa fa-send"></i></button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-lg-6 text-center text-lg-left">
+					<div class="copyright-text">
+						<p>Copyright &copy; 2020, All Right Reserved <a href="#">Ghumphir</a></p>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+					<div class="footer-menu">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Terms</a></li>
+							<li><a href="#">Privacy</a></li>
+							<li><a href="#">Policy</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
 <!--js -->
 <script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/util.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 
 </body>
