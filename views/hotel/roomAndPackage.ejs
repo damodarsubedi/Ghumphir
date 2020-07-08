@@ -10,6 +10,7 @@
             background-image: url('/images/darkmap.png');
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
     <body>
@@ -53,7 +54,7 @@
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#addRoom" aria-expanded="true" aria-controls="addRoom">
+                                <button class="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#addRoom" aria-expanded="true" aria-controls="addRoom">
                                     Add Rooms
                                 </button>
                                 </h2>
@@ -153,7 +154,7 @@
         document.getElementById('Photo').click();
     }
 
-    firebase.firestore().collection('rooms').get()
+    firebase.firestore().collection('rooms').where("uid", "==", "<%= uid %>").get()
     .then((rooms) => {
         rooms.docs.forEach((room,index) => {
             let card = document.createElement('div');
@@ -161,9 +162,10 @@
             let element = `
                     <div class="card-header" id="headingThree">
                         <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree${index}" aria-expanded="false" aria-controls="collapseThree${index}">
+                        <button class="btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#collapseThree${index}" aria-expanded="false" aria-controls="collapseThree${index}">
                             ${room.data().roomType}
                         </button>
+                        <span class="float-right fa fa-trash mt-2" onclick="deleteRoom('${room.id}')"></span>
                         </h5>
                     </div>
                     <div id="collapseThree${index}" class="collapse" aria-labelledby="headingThree${index}" data-parent="#accordion">
@@ -210,8 +212,15 @@
             })
             return document.getElementById('formRoom').submit();
         })
-        
     });
+
+    function deleteRoom(roomid){
+        firebase.firestore().collection('rooms').doc(roomid).delete()
+        .then(() => {
+            alert("Rooms deleted successfully");
+            window.location.reload();
+        })
+    }
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

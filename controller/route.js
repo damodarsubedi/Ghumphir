@@ -51,9 +51,9 @@ var route = function(app){
         res.render('signup');
     });
 
-    app.get('/users/home', (req, res) => {
-        res.render('home')
-    });
+    // app.get('/users/home', (req, res) => {
+    //     res.render('home')
+    // });
 
     app.get('/hotel/home', (req, res) => {
         if(sess){
@@ -85,6 +85,26 @@ var route = function(app){
             if(req.file){
                 res.redirect('/hotel/roomandpackage');
             }
+        }
+        else{
+            res.redirect('/');
+        }
+    })
+
+    //booking
+    app.get('/users/home', (req, res) => {
+        if(sess){
+            res.render('home', {name: sess.name, uid: sess.uid});
+        }
+        else{
+            res.redirect('/');
+        }
+      
+    })
+
+    app.post('/users/home', (req, res) => {
+        if(sess){
+              res.redirect('/users/home');    
         }
         else{
             res.redirect('/');

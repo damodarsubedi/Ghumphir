@@ -1,12 +1,213 @@
-Home
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+
+    <title>Home</title>
+</head>
+<body>
+
+ <!--banner image carousel-->
+<section class="section1">
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+		  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner ">
+		  <div class="carousel-item active" id="slide1">
+			<div class="carousel-caption">
+				<h5>Travel with us</h5>
+				<p>Adventure is waiting for you there</p>
+				<a href="#booking"><button  id="" class="button btn-primary" type="button" value=""><span>Explore</span></button></a>
+
+			</div>
+		  </div>
+		  <div class="carousel-item" id="slide2">
+			<div class="carousel-caption align-items-center justify-content-center">
+				<h5>Travel with us</h5>
+				<p>Adventure is waiting for you there</p>
+				<a href="#booking"><button  id="" class="button btn-primary" type="button" value=""><span>Explore</span></button></a>
+
+			</div>
+		  </div>
+		  <div class="carousel-item" id="slide3">
+			<div class="carousel-caption">
+				<h5>Travel with us</h5>
+				<p>Adventure is waiting for you there</p>
+				<a href="#booking"><button  id="" class="button btn-primary" type="button" value=""><span>Explore</span></button></a>
+
+			</div>
+		  </div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		  <span class="sr-only">Next</span>
+		</a>
+	  </div>	
+</section>
 
 <button onclick="signOut()">SIgn out</button>
 
+
+<!--booking-->
+<section id="booking" class="section">
+	<div class="section-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="booking-cta">
+						<h1>Make your reservation</h1>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam numquam at</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-offset-1">
+					<div class="booking-form">
+						<form method="POST" enctype="multipart/form-data" id="formRoom">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="text" id="name" />
+										<span class="form-label">Name</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="email" id="email" />
+										<span class="form-label">Email</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="tel" id="phone" />
+										<span class="form-label">Phone</span>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6">
+									<div class="form-group">
+										<span class="form-label">Rooms</span>
+										<select class="form-control"  id="roomno" >
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6">
+									<div class="form-group">
+										<span class="form-label">Guests</span>
+										<select class="form-control"  id="guestno" >
+											<option>1 Person</option>
+											<option>2 People</option>
+											<option>3 People</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="date" required  id="checkin">
+										<span class="form-label">Check In</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="date" required  id="checkout">
+										<span class="form-label">Check Out</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-btn" id="btnbook">
+								<button type="submit" id="btn" class="submit-btn" >Book Now</button>
+							</div>
+
+							<div id="msg">
+								<pre></pre>
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--contact page-->
+</section>
+
+<!-- <div class="container">  
+	<form id="contact" action="" method="post">
+	  <h3>Quick Contact</h3>
+	  <h4>Contact us today, and get reply with in 24 hours!</h4>
+	  <fieldset>
+		<input placeholder="Your name" type="text" tabindex="1" required autofocus>
+	  </fieldset>
+	  <fieldset>
+		<input placeholder="Your Email Address" type="email" tabindex="2" required>
+	  </fieldset>
+	  <fieldset>
+		<input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+	  </fieldset>
+	  <fieldset>
+		<input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+	  </fieldset>
+	  <fieldset>
+		<textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+	  </fieldset>
+	  <fieldset>
+		<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+	  </fieldset>
+	</form>
+   
+	
+  </div> -->
+
+  <!--footer-->
+<section>
+	
+</section>
+
+
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+<script>
+	$('.form-control').each(function () {
+		floatedLabel($(this));
+	});
 
+	$('.form-control').on('input', function () {
+		floatedLabel($(this));
+	});
+
+	function floatedLabel(input) {
+		var $field = input.closest('.form-group');
+		if (input.val()) {
+			$field.addClass('input-not-empty');
+		} else {
+			$field.removeClass('input-not-empty');
+		}
+	}
+</script>
 <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
@@ -32,6 +233,59 @@ Home
         firebase.auth().signOut().then(() => {
             window.location = '/';
         });
-    }
+	}
+	const db = firebase.firestore();
+
+	firebase.firestore().collection('hotel').get()
+			.then((hotel) => {
+				hotel.docs.forEach((hotels) => {
+					console.log(hotels.id);
+				})
+
+			})
+
+			document.addEventListener('submit', (event) => {
+				event.preventDefault();
+				let name = document.getElementById('name');
+				let email = document.getElementById('email');
+				let phone = document.getElementById('phone');
+				let rooms = document.getElementById('roomno');
+				let guests = document.getElementById('guestno');
+				let checkin = document.getElementById('checkin');
+				let checkout = document.getElementById('checkout');
+				let uid = "<%= uid %>";
+
+				firebase.firestore().collection('booking').doc().set({
+					uid: uid,
+					name: name.value,
+					email: email.value,
+					phone: phone.value,
+					rooms: rooms.value,
+					guests: guests.value,
+					checkin: checkin.value,
+					checkout: checkout.value
+				})
+				.then(() => {
+					fetch("/booking", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify({})	
+					})
+					alert('You have successfully booked')
+					return document.getElementById('formRoom').submit();
+				})
+				.catch(err => console.log(err))
+			});
 
 </script>
+
+
+</body>
+
+
+
+</html>
+
+
