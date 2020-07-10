@@ -159,6 +159,10 @@
         rooms.docs.forEach((room,index) => {
             let card = document.createElement('div');
             card.className = "card";
+            isAttached = "No";
+            if(room.data().attachedBathroom){
+                isAttached = "Yes";
+            }
             let element = `
                     <div class="card-header" id="headingThree">
                         <h5 class="mb-0">
@@ -173,6 +177,7 @@
                             <img src="/uploads/${room.data().imagePath}" width="250px" height="150px"><br><br>
                             People adjustable in each room: &nbsp;${room.data().noOfPeople}<br>
                             No of Room: &nbsp;${room.data().noOfRoom}<br>
+                            Attached Bathroom: &nbsp;${isAttached}<br>
                             Price per Room: &nbsp;Rs. ${room.data().price}
                         </div>
                     </div>
