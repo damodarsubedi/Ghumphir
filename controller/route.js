@@ -29,6 +29,7 @@ var route = function(app){
             }
             else{
                 sess.name = req.body.firstName + ' ' + req.body.lastName;
+                sess.uid = req.body.uid;
             }
         }
         else{
@@ -75,6 +76,16 @@ var route = function(app){
         }
         else{
             res.redirect('/');
+        }
+    })
+    app.get('/user/details',(req,res)=>{
+        if(sess){
+            res.render('',{
+                name:sess.name,
+                uid:sess.uid,
+            })
+        }else{
+            res.redirect('/')
         }
     })
     app.post('/hotel/addRommImagePath', (req, res) => {
