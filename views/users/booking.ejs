@@ -12,7 +12,30 @@
 	</style>
 </head>
 <body>
-   <!--booking-->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand col-4 text-info pl-5" href="#">Ghumphir</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item px-2">
+					<a class="nav-link" href="/users/home">Home</a>
+				</li>
+				<li class="nav-item px-3">
+					<a class="nav-link" href="/users/mybooking">My Booking</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<!-- <span class="mr-3"><%= name %></span> -->
+				<button class="btn btn-outline-danger" onclick="signOut()">Sign out</button>
+			</form>
+		</div>
+	</nav>
+	
+   <!--booking section-->
 		<section id="booking" class="section">
 			<div class="section-center">
 				<div class="container">
@@ -115,9 +138,112 @@
 					</div>
 				</div>
 			</div>
-
-			<!--contact page-->
 		</section>
+<!--footer section-->
+		<footer class="footer-section">
+			<div class="container">
+				<div class="footer-cta pt-5 pb-5">
+					<div class="row">
+						<div class="col-xl-4s col-md-4 ">
+							<div class="single-cta">
+								<i class="fa fa-phone"></i>
+								<div class="cta-text">
+									<h4>Call us</h4>
+									<span>9866543210 0</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-4 col-md-4 mb-30">
+							<div class="single-cta">
+								<i class="fa fa-envelope"></i>
+								<div class="cta-text">
+									<h4>Mail us</h4>
+									<span>phirghumphir55@gmail.com</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-content pt-5 pb-5">
+					<div class="row">
+						<div class="col-xl-4 col-lg-4 mb-50">
+							<div class="footer-widget">
+								<div class="footer-social-icon">
+									<span>Ghumphir</span>
+								</div>
+								<div class="footer-text">
+									<p>Ghumphir is a web application to deliver rural navigaton and contacting for their local accomodation withi the
+										trekking route and trails.
+									</p>
+								</div>
+								<div class="footer-social-icon">
+									<span>Follow us</span>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+	
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+							<div class="footer-widget">
+								<div class="footer-widget-heading">
+									<h3>Useful Links</h3>
+								</div>
+								<ul>
+									<li><a href="#">Home</a></li>
+									<li><a href="#">about</a></li>
+									<li><a href="#">Booking</a></li>
+									<li><a href="#">Contact</a></li>
+									<li><a href="#">Map</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+							<div class="footer-widget">
+								<div class="footer-widget-heading">
+									<h3>Subscribe</h3>
+								</div>
+								<div class="footer-text mb-25">
+									<p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+								</div>
+								<div class="subscribe-form">
+									<form action="#">
+										<input type="text" placeholder="Email Address">
+										<button><i class="fa fa-send"></i></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-6 col-lg-6 text-center text-lg-left">
+							<div class="copyright-text">
+								<p>Copyright &copy; 2020, All Right Reserved <a href="#">Ghumphir</a></p>
+							</div>
+						</div>
+						<div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+							<div class="footer-menu">
+								<ul>
+									<li><a href="#">Home</a></li>
+									<li><a href="#">Terms</a></li>
+									<li><a href="#">Privacy</a></li>
+									<li><a href="#">Policy</a></li>
+									<li><a href="#">Contact</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
 
 		<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>

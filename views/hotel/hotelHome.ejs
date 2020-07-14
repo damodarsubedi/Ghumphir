@@ -20,18 +20,15 @@
                         <a class="nav-link" href="/hotel/home">Home</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link" href="/hotel/roomandpackage">Rooms and Package</a>
+                        <a class="nav-link" href="/hotel/roomandpackage">Rooms and Packages</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="/hotel/bookingreq">Booking Reqests</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#">Disabled</a>
+                        <a class="nav-link" href="/hotel/bookingreq">Bookings</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <span class="mr-3"><%= name %></span>
-                    <button class="btn btn-outline-info" onclick="signOut()">Sign out</button>
+                    <button class="btn btn-outline-danger" onclick="signOut()">Sign out</button>
                 </form>
             </div>
         </nav>
@@ -45,8 +42,9 @@
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-
 <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
 
 <script>
     // Your web app's Firebase configuration
@@ -61,7 +59,6 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             
@@ -69,6 +66,7 @@
             window.location = '/';
         }
     });
+
     function signOut(){
         firebase.auth().signOut().then(() => {
             fetch('/signout', {

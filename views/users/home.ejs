@@ -8,16 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    
+
 
 
 	<title>Home</title>
-	<style>
-		/* Set the size of the div element that contains the map */
-		#map {
-			height: 400px;  /* The height is 400 pixels */
-			width: 100%;  /* The width is the width of the web page */
-			}
-		</style>
+
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,13 +30,10 @@
 					<li class="nav-item px-3">
 						<a class="nav-link" href="/users/mybooking">My Booking</a>
 					</li>
-					<li class="nav-item px-2">
-						<a class="nav-link" href="#">Disabled</a>
-					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
 					<!-- <span class="mr-3"><%= name %></span> -->
-					<button class="btn btn-outline-info" onclick="signOut()">Sign out</button>
+					<button class="btn btn-outline-danger" onclick="signOut()">Sign out</button>
 				</form>
 			</div>
 		</nav>
@@ -59,7 +52,7 @@
 					<div class="carousel-caption">
 						<h5>Travel with us</h5>
 						<p>Adventure is waiting for you there</p>
-						<a href="#booking"><button id="" class="button btn-primary" type="button"
+						<a href="#map"><button id="" class="button btn-primary" type="button"
 								value=""><span>Explore</span></button></a>
 
 					</div>
@@ -68,7 +61,7 @@
 					<div class="carousel-caption align-items-center justify-content-center">
 						<h5>Travel with us</h5>
 						<p>Adventure is waiting for you there</p>
-						<a href="#booking"><button id="" class="button btn-primary" type="button"
+						<a href="#map"><button id="" class="button btn-primary" type="button"
 								value=""><span>Explore</span></button></a>
 
 					</div>
@@ -77,7 +70,7 @@
 					<div class="carousel-caption">
 						<h5>Travel with us</h5>
 						<p>Adventure is waiting for you there</p>
-						<a href="#booking"><button id="" class="button btn-primary" type="button"
+						<a href="#map"><button id="" class="button btn-primary" type="button"
 								value=""><span>Explore</span></button></a>
 
 					</div>
@@ -95,7 +88,7 @@
 	</section>
 
 	<!-- <button onclick="signOut()">SIgn out</button> -->
-	<div id="map"></div>
+	<div id="map" class="map-area"></div>
 
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-primary" data-toggle="modal" style="display: none;" id="modalButton"
@@ -125,7 +118,7 @@
 	</div>
 
 	<!--booking-->
-	<section id="booking" class="section">
+	<!-- <section id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
@@ -219,42 +212,112 @@
 				</div>
 			</div>
 		</div>
-
-		<!--contact page-->
-	</section>
-
-	<!-- <div class="container">  
-			<form id="contact" action="" method="post">
-			<h3>Quick Contact</h3>
-			<h4>Contact us today, and get reply with in 24 hours!</h4>
-			<fieldset>
-				<input placeholder="Your name" type="text" tabindex="1" required autofocus>
-			</fieldset>
-			<fieldset>
-				<input placeholder="Your Email Address" type="email" tabindex="2" required>
-			</fieldset>
-			<fieldset>
-				<input placeholder="Your Phone Number" type="tel" tabindex="3" required>
-			</fieldset>
-			<fieldset>
-				<input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
-			</fieldset>
-			<fieldset>
-				<textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
-			</fieldset>
-			<fieldset>
-				<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-			</fieldset>
-			</form>
-		
-			
-		</div> -->
+	</section> -->
 
 	<!--footer-->
-	<section>
 
-	</section>
+	<footer class="footer-section">
+		<div class="container">
+			<div class="footer-cta pt-5 pb-5">
+				<div class="row">
+					<div class="col-xl-4s col-md-4 ">
+						<div class="single-cta">
+							<i class="fa fa-phone"></i>
+							<div class="cta-text">
+								<h4>Call us</h4>
+								<span>9866543210 0</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-4 mb-30">
+						<div class="single-cta">
+							<i class="fa fa-envelope"></i>
+							<div class="cta-text">
+								<h4>Mail us</h4>
+								<span>phirghumphir55@gmail.com</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-content pt-5 pb-5">
+				<div class="row">
+					<div class="col-xl-4 col-lg-4 mb-50">
+						<div class="footer-widget">
+							<div class="footer-social-icon">
+								<span>Ghumphir</span>
+							</div>
+							<div class="footer-text">
+								<p>Ghumphir is a web application to deliver rural navigaton and contacting for their local accomodation withi the
+									trekking route and trails.
+								</p>
+							</div>
+							<div class="footer-social-icon">
+								<span>Follow us</span>
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-linkedin"></i></a>
+								<a href="#"><i class="fa fa-instagram"></i></a>
 
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+						<div class="footer-widget">
+							<div class="footer-widget-heading">
+								<h3>Useful Links</h3>
+							</div>
+							<ul>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">about</a></li>
+								<li><a href="#">Booking</a></li>
+								<li><a href="#">Contact</a></li>
+								<li><a href="#">Map</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+						<div class="footer-widget">
+							<div class="footer-widget-heading">
+								<h3>Subscribe</h3>
+							</div>
+							<div class="footer-text mb-25">
+								<p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+							</div>
+							<div class="subscribe-form">
+								<form action="#">
+									<input type="text" placeholder="Email Address">
+									<button><i class="fa fa-send"></i></button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 text-center text-lg-left">
+						<div class="copyright-text">
+							<p>Copyright &copy; 2020, All Right Reserved <a href="#">Ghumphir</a></p>
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+						<div class="footer-menu">
+							<ul>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Terms</a></li>
+								<li><a href="#">Privacy</a></li>
+								<li><a href="#">Policy</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>

@@ -26,15 +26,15 @@
                         <a class="nav-link" href="/hotel/home">Home</a>
                     </li>
                     <li class="nav-item px-3">
-                        <a class="nav-link" href="/hotel/roomandpackage">Rooms and Package</a>
+                        <a class="nav-link" href="/hotel/roomandpackage">Rooms and Packages</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#">Disabled</a>
+                        <a class="nav-link" href="/hotel/bookingreq">Bookings</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <span class="mr-3"><%= name %></span>
-                    <button class="btn btn-outline-info" onclick="signOut()">Sign out</button>
+                    <button class="btn btn-outline-danger" onclick="signOut()">Sign out</button>
                 </form>
             </div>
         </nav>
@@ -42,14 +42,14 @@
         <div class="container" style="background-color: rgba(248, 249, 250, 0.8); border-radius: 10px;">
             <div class="row mt-5 pb-4">
                 <div class="col-6 px-5">
-                    <h3 class="headingRooms mt-4">Current Rooms</h3>
+                    <h3 class="headingRooms mt-4 text-primary">Current Rooms</h3>
                     <div id="accordion">
                         
                     </div>
                 </div>
                 <div class="col-12 px-5">
 
-                    <h3 class="mt-4 headingRooms">Add Rooms</h3>
+                    <h3 class="mt-4 headingRooms text-primary">Add Rooms</h3>
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header" id="headingOne">
