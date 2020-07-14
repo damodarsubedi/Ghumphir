@@ -114,7 +114,7 @@ var route = function(app){
     })
     app.get('/users/booking/:id', (req,res)=>{
         if(sess){
-            console.log(sess.uid);
+            
             res.render('booking',{name: sess.name, uid: sess.uid, hotelId: req.params.id});
 
         }else{
