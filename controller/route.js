@@ -112,6 +112,31 @@ var route = function(app){
         }
       
     })
+    app.get('/users/booking/:id', (req,res)=>{
+        if(sess){
+            console.log(sess.uid);
+            res.render('booking',{name: sess.name, uid: sess.uid, hotelId: req.params.id});
+
+        }else{
+            res.redirect('/');
+        }
+    })
+    app.get('/users/mybooking',(req,res)=>{
+        if(sess){
+            res.render('mybooking',{name: sess.name, uid: sess.uid});
+
+        }else{
+            res.redirect('/');
+        }
+    })
+    app.get('/hotel/bookingreq',(req,res)=>{
+        if(sess){
+            res.render('bookingreq',{name: sess.name, uid: sess.uid});
+
+        }else{
+            res.redirect('/');
+        }
+    })
 
     app.post('/users/home', (req, res) => {
         if(sess){

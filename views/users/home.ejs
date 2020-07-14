@@ -30,7 +30,7 @@
 						<a class="nav-link" href="/users/home">Home</a>
 					</li>
 					<li class="nav-item px-3">
-						<a class="nav-link" href="/users/booking">My Booking</a>
+						<a class="nav-link" href="/users/mybooking">My Booking</a>
 					</li>
 					<li class="nav-item px-2">
 						<a class="nav-link" href="#">Disabled</a>
@@ -447,7 +447,7 @@
 											No of Room: &nbsp;${room.data().noOfRoom}<br>
 											Attached Bathroom: &nbsp;${isAttached}<br>
 											Price per Room: &nbsp;Rs. ${room.data().price}<br><br>
-											<a href="#"><button class="btn btn-outline-primary px-4">Book</button></a>
+											<a href="/users/booking/${room.data().uid}"><button class="btn btn-outline-primary px-4">Book</button></a>
 										</div>
 									</div>
 							`;
