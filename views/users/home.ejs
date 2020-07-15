@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand col-4 text-info pl-5" href="#">Ghumphir</a>
+			<a class="navbar-brand col-4 text-info pl-5" href="#">Ghumfir</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -111,7 +111,7 @@
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
@@ -234,7 +234,7 @@
 							<i class="fa fa-envelope"></i>
 							<div class="cta-text">
 								<h4>Mail us</h4>
-								<span>phirghumphir55@gmail.com</span>
+								<span>phirghumfir55@gmail.com</span>
 							</div>
 						</div>
 					</div>
@@ -245,10 +245,10 @@
 					<div class="col-xl-4 col-lg-4 mb-50">
 						<div class="footer-widget">
 							<div class="footer-social-icon">
-								<span>Ghumphir</span>
+								<span>Ghumfir</span>
 							</div>
 							<div class="footer-text">
-								<p>Ghumphir is a web application to deliver rural navigaton and contacting for their local accomodation withi the
+								<p>Ghumfir is a web application to deliver rural navigaton and contacting for their local accomodation withi the
 									trekking route and trails.
 								</p>
 							</div>
@@ -268,8 +268,7 @@
 								<h3>Useful Links</h3>
 							</div>
 							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">about</a></li>
+								<li><a href="/users/home">Home</a></li>
 								<li><a href="#">Booking</a></li>
 								<li><a href="#">Contact</a></li>
 								<li><a href="#">Map</a></li>
@@ -300,13 +299,13 @@
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 text-center text-lg-left">
 						<div class="copyright-text">
-							<p>Copyright &copy; 2020, All Right Reserved <a href="#">Ghumphir</a></p>
+							<p>Copyright &copy; 2020, All Right Reserved <a href="#">Ghumfir</a></p>
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
 						<div class="footer-menu">
 							<ul>
-								<li><a href="#">Home</a></li>
+								<li><a href="/users/home">Home</a></li>
 								<li><a href="#">Terms</a></li>
 								<li><a href="#">Privacy</a></li>
 								<li><a href="#">Policy</a></li>
@@ -353,7 +352,6 @@
 		function initMap() {
 			// The location of Uluru
 			var mylatlng = { lat: 27, lng: 85 };
-			var mylatlng1 = { lat: 28, lng: 85 };
 			// The map, centered at Uluru
 			var map = new google.maps.Map(
 				document.getElementById('map'), { zoom: 12, center: mylatlng }
@@ -377,10 +375,7 @@
 
 			})
 
-			var marker = new google.maps.Marker({ position: mylatlng, map: map, title: "hotel" });
-
-			var marker = new google.maps.Marker({ position: mylatlng1, animation: google.maps.Animation.BOUNCE, map: map, title: "hotel2" });
-
+			
 
 			// map.addListener("center_changed", function() {
 			// 	// 3 seconds after the center of the map has changed, pan back to the
